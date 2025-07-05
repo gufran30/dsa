@@ -41,12 +41,20 @@ findSecondLargest(arr);
   ---------------------------------------------------------------------------
 */
 
-/*
-  Remove duplicates from sorted array.
-
-*/
-
-let arr = [1,1,2,2,2,3,3];
-
-let hashArray = new Array().fill(0)
-
+let mat = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+function diagonalSum(mat) {
+  let sum = 0;
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[i].length; j++) {
+      if (i === j || i + j === mat.length + 1) {
+        sum = sum + mat[j];
+      }
+    }
+  }
+  return sum;
+}
+console.log(diagonalSum(mat))

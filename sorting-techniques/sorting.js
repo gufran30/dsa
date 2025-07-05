@@ -18,9 +18,9 @@ let n = arr.length;
 // bubble sort : adjacent swapping, push max number at last index. 
 // TC = O(n*n) [in Worst case & Average case]
 // TC = O(n) [in Best case] --> if array is sorted already
-// for (let i = 0; i < n; i++) {
+// for (let i = 0; i < n - 1; i++) {
 //   let flag = false;
-//   for (let j = 0; j < n - i; j++) {
+//   for (let j = 0; j < n - i - 1; j++) {
 //     if (arr[j] > arr[j + 1]) {
 //       // swapping - by destructuring
 //       [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
