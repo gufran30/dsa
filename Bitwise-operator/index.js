@@ -142,7 +142,7 @@ from above demonstration we can say,
 
 function isPowerOf2(num) {
   if( ( num & (num -1)) === 0) return true
-  else false
+  else return false
 }
 console.log(isPowerOf2(38) ? "Power of 2" : "Not Power of 2")
 
