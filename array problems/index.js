@@ -1,0 +1,92 @@
+function sortColorsQuestion() {
+  function sortColors(arr) {
+    let n = arr.length,
+      i = 0,
+      j = 0,
+      k = n - 1;
+
+    while (i <= k) {
+      if (arr[i] === 0) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = arr[i];
+
+        i++;
+        j++;
+      } else if (arr[i] === 2) {
+        swap(arr, i, k);
+        k--;
+      } else {
+        i++;
+      }
+    }
+    return arr;
+  }
+
+  function swap(arr, a, b) {
+    let c = arr[a];
+    arr[a] = arr[b];
+    arr[b] = c;
+
+    return arr;
+  }
+
+  let arr = [2, 0, 2, 1, 1, 0];
+  const ans = sortColors(arr);
+  console.log(ans); // [0, 0, 1, 1, 2, 2]
+}
+
+function trappingRainWaterQuestion() {
+  function trappingRainWater(arr) {
+    let ans = 0,
+      n = arr.length;
+    let left = new Array(arr.length);
+    let right = new Array(arr.length);
+
+    let maxLeft = arr[0];
+    let maxRight = arr[n - 1];
+
+    // filling leftArr
+    for (let i = 0; i < n; i++) {
+      maxLeft = Math.max(maxLeft, arr[i]);
+      left[i] = maxLeft;
+    }
+
+    // filling rightArr
+    for (let i = n - 1; i >= 0; i--) {
+      maxRight = Math.max(maxRight, arr[i]);
+      right[i] = maxRight;
+    }
+
+    // for ansSum
+    for (let i = 0; i < n; i++) {
+      ans += Math.min(left[i], right[i]) - arr[i];
+    }
+
+    return ans;
+  }
+
+  const height = [4, 2, 0, 3, 2, 5];
+  const ans = trappingRainWater(height);
+  console.log(ans); // 9
+}
+
+function containerWithMostWaterQuestion() {
+  function containerWithMostWater(arr) {
+    let ans = 0,
+      i = 0,
+      j = arr.length - 1;
+
+    while (i < j) {
+      ans = Math.max(ans, Math.min(arr[i], arr[j]) * (j - 1));
+      if (arr[i] < arr[j]) i++;
+      else j--;
+    }
+    return ans;
+  }
+
+  let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+  // Output: 49
+  const ans = containerWithMostWater(height);
+  console.log(ans);
+}
