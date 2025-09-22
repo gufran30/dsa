@@ -90,3 +90,34 @@ function containerWithMostWaterQuestion() {
   const ans = containerWithMostWater(height);
   console.log(ans);
 }
+
+function threeSumQuestion() {
+  function threeSum(arr) {
+    let ans = [];
+    arr.sort((a, b) => a - b);
+    let n = arr.length;
+    for (let i = 0; i < n; i++) {
+      if (i != 0 && arr[i - 1] == arr[i]) continue;
+
+      let j = i + 1,
+        k = n - 1;
+      while (j < k) {
+        let sum = arr[i] + arr[j] + arr[k];
+
+        if (sum === 0) {
+          let tempArr = [arr[i], arr[j++], arr[k--]];
+          ans.push(tempArr);
+          while (j < k && arr[j - 1] == arr[j]) j++;
+          while (j < k && arr[k + 1] == arr[k]) k--;
+        } else if (sum < 0) j++;
+        else k--;
+      }
+    }
+    return ans;
+  }
+
+  const nums = [-1, 0, 1, 2, -1, -4];
+  // Output: [ [-1, -1, 2 ],[ -1, 0, 1 ] ]
+  const ans = threeSum(nums);
+  console.log(ans);
+}
