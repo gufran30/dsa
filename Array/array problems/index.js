@@ -121,3 +121,45 @@ function threeSumQuestion() {
   const ans = threeSum(nums);
   console.log(ans);
 }
+
+function removeElementsQuestion() {
+  function removeElmemnt(nums, value) {
+    let k = 0;
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] != value) {
+        nums[k++] = nums[i];
+      }
+    }
+
+    return k;
+  }
+
+  const nums = [0, 1, 2, 2, 3, 0, 4, 2],
+    value = 2;
+
+  const ans = removeElmemnt(nums, value);
+  console.log(ans);
+}
+
+function sqrtQuestion() {
+  function sqrt(x) {
+    if (x < 2) return x;
+
+    let low = 0,
+      high = x;
+    while (low <= high) {
+      let mid = Math.floor(low + (high - low) / 2);
+      if (mid * mid < x) {
+        low = mid + 1;
+      } else if (mid * mid > x) {
+        high = mid - 1;
+      } else {
+        return mid;
+      }
+    }
+    return high;
+  }
+
+  let x = 8;
+  console.log(sqrt(x));
+}
