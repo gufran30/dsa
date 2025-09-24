@@ -163,3 +163,27 @@ function sqrtQuestion() {
   let x = 8;
   console.log(sqrt(x));
 }
+
+function digitSumEvenQuestion() {
+  function countEven(num) {
+    function getDigitSum(n) {
+      let temp = n,
+        sum = 0;
+      while (temp > 0) {
+        sum += temp % 10;
+        temp = Math.floor(temp / 10);
+      }
+      return sum;
+    }
+
+    let count = 0;
+    for (let i = 1; i <= num; i++) {
+      if (getDigitSum(i) % 2 === 0) count++;
+    }
+    return count;
+  }
+
+  console.log(countEven(30));
+}
+
+
