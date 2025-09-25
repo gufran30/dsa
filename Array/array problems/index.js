@@ -186,4 +186,24 @@ function digitSumEvenQuestion() {
   console.log(countEven(30));
 }
 
+function plusOneQuestion() {
+  const plusOne = function (digits) {
+    let n = digits.length - 1;
 
+    for (let i = n; i >= 0; i--) {
+      digits[i] += 1;
+
+      if (digits[i] < 10) {
+        return digits;
+      }
+
+      digits[i] = digits[i] % 10;
+    }
+
+    return [1, ...digits];
+  };
+
+  const digits = [1, 2, 3];
+  // Output: [1,2,4]
+  console.log(plusOne(digits));
+}
